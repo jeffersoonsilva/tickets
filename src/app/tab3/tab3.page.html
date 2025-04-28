@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Relatórios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-label>Relatório</ion-label>
+        <ion-item>
+          <ion-icon slot="start" name="key"></ion-icon> <!-- Ícone de senha -->
+          Senha emitida: {{senhasService.senhasTotal}}
+        </ion-item>
+        
+        <ion-item>
+          <ion-icon slot="start" name="list"></ion-icon> <!-- Ícone de lista -->
+          Senhas Gerais: {{senhasService.senhasGeral}}
+        </ion-item>
+        
+        <ion-item>
+          <ion-icon slot="start" name="alert"></ion-icon> <!-- Ícone de prioridade -->
+          Senhas Prioritarias: {{senhasService.senhasPrior}}
+        </ion-item>
+        
+        <ion-item>
+          <ion-icon slot="start" name="medical"></ion-icon> <!-- Ícone de exame -->
+          Senhas Exame: {{senhasService.senhasExame}}
+        </ion-item>
+        <ion-item *ngFor="let senha of senhasService.senhasEmitidas">
+           Senha emitida: {{ senha.numero }} - {{ senha.dataHora | date: 'dd/MM/yyyy HH:mm:ss' }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

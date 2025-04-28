@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Atendente
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button aria-expanded="block" (click)="chamarProximaSenha()">Chamar Próxima Senha</ion-button>
+
+  <ion-list *ngIf="senhasService.senhaChamada">
+    <ion-item>
+      <p>Senha Chamada: {{ senhasService.senhaChamada.numero }}</p>
+      <p>Data e Hora de Atendimento: {{ senhasService.senhaChamada.dataHoraAtendimento | date:'medium' }}</p>
+    </ion-item>
+  </ion-list> 
+</ion-content>
